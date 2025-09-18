@@ -1,0 +1,1440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Neo - Business Central Consulting Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        'primary-dark': '#4B4BC8'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #5D5CDE 0%, #4B4BC8 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white">
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-xl font-bold text-primary">Nick Neo Consulting</h1>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#services" class="text-gray-700 dark:text-gray-300 hover:text-primary">Services</a>
+                    <a href="#expertise" class="text-gray-700 dark:text-gray-300 hover:text-primary">Expertise</a>
+                    <a href="#dashboards" class="text-gray-700 dark:text-gray-300 hover:text-primary">Dashboards</a>
+                    <a href="#integrations" class="text-gray-700 dark:text-gray-300 hover:text-primary">Integrations</a>
+                    <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-700 dark:text-gray-300">
+                        <i class="fas fa-bars h-6 w-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 border-t dark:border-gray-700">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#services" class="block px-3 py-2 text-gray-700 dark:text-gray-300">Services</a>
+                <a href="#expertise" class="block px-3 py-2 text-gray-700 dark:text-gray-300">Expertise</a>
+                <a href="#dashboards" class="block px-3 py-2 text-gray-700 dark:text-gray-300">Dashboards</a>
+                <a href="#integrations" class="block px-3 py-2 text-gray-700 dark:text-gray-300">Integrations</a>
+                <a href="#contact" class="block px-3 py-2 text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">Dynamics 365 Business Central Expert</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">25+ Years of ERP Transformation Excellence</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-2xl font-bold">50+</div>
+                        <div class="text-sm opacity-90">Successful Implementations</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-2xl font-bold">25+</div>
+                        <div class="text-sm opacity-90">Years Experience</div>
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-sm rounded-lg p-4">
+                        <div class="text-2xl font-bold">100%</div>
+                        <div class="text-sm opacity-90">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Core Services</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">End-to-end Business Central solutions tailored to your needs</p>
+            </div>
+            
+            <!-- Service Category Buttons -->
+            <div class="flex flex-wrap justify-center mb-8 gap-2">
+                <button class="service-filter active px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors" data-category="all">All Services</button>
+                <button class="service-filter px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-category="implementation">Implementation</button>
+                <button class="service-filter px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-category="integration">Integration</button>
+                <button class="service-filter px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-category="automation">Automation</button>
+                <button class="service-filter px-6 py-3 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors" data-category="support">Support</button>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-container">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-cogs text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">BC Implementation</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Complete Business Central setup, configuration, and deployment with best practices</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-database text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Data Migration</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Seamless data migration from legacy systems with data cleansing and validation</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-chart-bar text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Power BI Integration</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Real-time dashboards and automated reporting for data-driven decisions</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-project-diagram text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Process Automation</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Workflow automation and approval processes to increase efficiency</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-shield-alt text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Compliance & Controls</h3>
+                    <p class="text-gray-600 dark:text-gray-400">SOX compliance, audit-ready processes, and financial controls implementation</p>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="text-primary mb-4">
+                        <i class="fas fa-graduation-cap text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Training & Support</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Comprehensive user training and ongoing support for smooth adoption</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Technical Expertise</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Comprehensive knowledge across the Microsoft Dynamics ecosystem</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Core Platforms</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span>Dynamics 365 Business Central</span>
+                            <div class="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Power BI</span>
+                            <div class="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>SQL & SSRS</span>
+                            <div class="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Excel VBA</span>
+                            <div class="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>Oracle Fusion</span>
+                            <div class="w-32 bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Certifications</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-award h-5 w-5 text-primary mr-2"></i>
+                                <span class="font-semibold">Microsoft Certified</span>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Dynamics 365 Finance & Operations Functional Consultant</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-award h-5 w-5 text-primary mr-2"></i>
+                                <span class="font-semibold">Microsoft Certified</span>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Dynamics Business Central Finance Essentials</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                            <div class="flex items-center mb-2">
+                                <i class="fas fa-graduation-cap h-5 w-5 text-primary mr-2"></i>
+                                <span class="font-semibold">ACCA Qualified</span>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Professional Accounting Qualification</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Dashboards Section -->
+    <section id="dashboards" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Business Central Dashboards</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Sample dashboards showing the power of BC analytics</p>
+            </div>
+            
+            <!-- Dashboard Tabs -->
+            <div class="flex flex-wrap justify-center mb-8">
+                <button class="dashboard-tab active px-6 py-3 mx-2 mb-2 bg-primary text-white rounded-lg" data-tab="financial">Financial Overview</button>
+                <button class="dashboard-tab px-6 py-3 mx-2 mb-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg" data-tab="inventory">Inventory Management</button>
+                <button class="dashboard-tab px-6 py-3 mx-2 mb-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg" data-tab="sales">Sales Performance</button>
+            </div>
+
+            <!-- Dashboard Content -->
+            <div id="financial-dashboard" class="dashboard-content">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- KPI Cards -->
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg p-6 shadow-lg cursor-pointer hover:shadow-xl transition-shadow" onclick="showDrillDown('revenue')">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-blue-100 text-sm">Total Revenue</p>
+                                <p class="text-2xl font-bold">£2.4M</p>
+                                <p class="text-blue-100 text-xs">+12.5% vs target</p>
+                            </div>
+                            <i class="fas fa-chart-line text-3xl text-blue-200"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 text-white rounded-lg p-6 shadow-lg cursor-pointer hover:shadow-xl transition-shadow" onclick="showDrillDown('profit')">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-green-100 text-sm">Gross Profit</p>
+                                <p class="text-2xl font-bold">£1.02M</p>
+                                <p class="text-green-100 text-xs">42.3% margin</p>
+                            </div>
+                            <i class="fas fa-pound-sign text-3xl text-green-200"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg p-6 shadow-lg cursor-pointer hover:shadow-xl transition-shadow" onclick="showDrillDown('ar')">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-orange-100 text-sm">Outstanding AR</p>
+                                <p class="text-2xl font-bold">£184K</p>
+                                <p class="text-orange-100 text-xs">38 days avg</p>
+                            </div>
+                            <i class="fas fa-clock text-3xl text-orange-200"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-lg p-6 shadow-lg cursor-pointer hover:shadow-xl transition-shadow" onclick="showDrillDown('cash')">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-purple-100 text-sm">Cash Position</p>
+                                <p class="text-2xl font-bold">£425K</p>
+                                <p class="text-purple-100 text-xs">+£85K this month</p>
+                            </div>
+                            <i class="fas fa-university text-3xl text-purple-200"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold">Revenue vs Target (YTD)</h3>
+                            <button class="text-primary hover:text-primary-dark" onclick="showDrillDown('revenue-detail')">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                        </div>
+                        <div class="relative h-48 w-full">
+                            <canvas id="revenueChart" width="400" height="192"></canvas>
+                        </div>
+                        <div class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                            <span class="inline-block w-3 h-3 bg-primary rounded mr-2"></span>Actual
+                            <span class="inline-block w-3 h-3 bg-gray-400 rounded mr-2 ml-4"></span>Target
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold">Monthly Cash Flow</h3>
+                            <button class="text-primary hover:text-primary-dark" onclick="showDrillDown('cashflow-detail')">
+                                <i class="fas fa-expand-arrows-alt"></i>
+                            </button>
+                        </div>
+                        <div class="relative h-48 w-full">
+                            <canvas id="cashFlowChart" width="400" height="192"></canvas>
+                        </div>
+                        <div class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+                            <span class="inline-block w-3 h-3 bg-green-500 rounded mr-2"></span>Positive
+                            <span class="inline-block w-3 h-3 bg-red-500 rounded mr-2 ml-4"></span>Negative
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold">P&L Summary</h3>
+                            <span class="text-xs bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 px-2 py-1 rounded">Oct 2024</span>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Revenue</span>
+                                <span class="font-semibold text-green-600">£425K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">COGS</span>
+                                <span class="font-semibold text-red-600">-£245K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Gross Profit</span>
+                                <span class="font-semibold">£180K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Operating Exp</span>
+                                <span class="font-semibold text-red-600">-£95K</span>
+                            </div>
+                            <div class="border-t pt-2 flex justify-between">
+                                <span class="font-semibold">Net Income</span>
+                                <span class="font-bold text-green-600">£85K</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold">AR Aging</h3>
+                            <button class="text-primary hover:text-primary-dark" onclick="showDrillDown('ar-aging')">
+                                <i class="fas fa-table"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-400">Current (0-30)</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 bg-gray-200 dark:bg-gray-600 rounded-full h-2 mr-2">
+                                        <div class="bg-green-500 h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                    <span class="text-sm font-semibold">£138K</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-400">31-60 days</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 bg-gray-200 dark:bg-gray-600 rounded-full h-2 mr-2">
+                                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 45%"></div>
+                                    </div>
+                                    <span class="text-sm font-semibold">£28K</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-400">61-90 days</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 bg-gray-200 dark:bg-gray-600 rounded-full h-2 mr-2">
+                                        <div class="bg-orange-500 h-2 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                    <span class="text-sm font-semibold">£12K</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600 dark:text-gray-400">90+ days</span>
+                                <div class="flex items-center">
+                                    <div class="w-16 bg-gray-200 dark:bg-gray-600 rounded-full h-2 mr-2">
+                                        <div class="bg-red-500 h-2 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                    <span class="text-sm font-semibold">£6K</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <div class="flex justify-between items-center mb-4">
+                            <h3 class="text-lg font-semibold">Top Customers</h3>
+                            <button class="text-primary hover:text-primary-dark" onclick="showDrillDown('customers')">
+                                <i class="fas fa-users"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-medium">Acme Corp</div>
+                                    <div class="text-xs text-gray-500">Manufacturing</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-semibold">£145K</div>
+                                    <div class="text-xs text-green-600">+8.2%</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-medium">Global Tech Ltd</div>
+                                    <div class="text-xs text-gray-500">Technology</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-semibold">£98K</div>
+                                    <div class="text-xs text-green-600">+12.1%</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-medium">Prime Industries</div>
+                                    <div class="text-xs text-gray-500">Retail</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-semibold">£76K</div>
+                                    <div class="text-xs text-red-600">-3.5%</div>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <div class="font-medium">Metro Systems</div>
+                                    <div class="text-xs text-gray-500">Services</div>
+                                </div>
+                                <div class="text-right">
+                                    <div class="font-semibold">£52K</div>
+                                    <div class="text-xs text-green-600">+5.7%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="inventory-dashboard" class="dashboard-content hidden">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Stock Levels</h3>
+                        <div class="relative h-32 w-full">
+                            <canvas id="stockChart" width="400" height="128"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Inventory Turnover</h3>
+                        <div class="relative h-32 w-full">
+                            <canvas id="turnoverChart" width="400" height="128"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Inventory Alerts</h3>
+                        <div class="space-y-3 h-32 flex flex-col justify-center">
+                            <div class="flex items-center">
+                                <span class="h-2 w-2 bg-red-500 rounded-full mr-2"></span>
+                                <span class="text-sm">12 items below reorder point</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="h-2 w-2 bg-yellow-500 rounded-full mr-2"></span>
+                                <span class="text-sm">8 items approaching expiry</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="h-2 w-2 bg-blue-500 rounded-full mr-2"></span>
+                                <span class="text-sm">5 pending purchase orders</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sales-dashboard" class="dashboard-content hidden">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Sales by Region</h3>
+                        <div class="relative h-32 w-full">
+                            <canvas id="salesRegionChart" width="400" height="128"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Monthly Trends</h3>
+                        <div class="relative h-32 w-full">
+                            <canvas id="salesTrendChart" width="400" height="128"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                        <h3 class="text-lg font-semibold mb-4">Top Performers</h3>
+                        <div class="space-y-3 h-32 flex flex-col justify-center">
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Sarah Johnson</span>
+                                <span class="font-semibold">£145K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Mike Smith</span>
+                                <span class="font-semibold">£132K</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-gray-600 dark:text-gray-400">Lisa Chen</span>
+                                <span class="font-semibold">£128K</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integrations Section -->
+    <section id="integrations" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Popular Integrations</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Connect Business Central with your existing systems</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                        <div class="text-primary mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fab fa-salesforce text-6xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Salesforce</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Sync customer data and sales opportunities</p>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                        <div class="text-primary mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-chart-line text-6xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Power BI</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Real-time analytics and reporting</p>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                        <div class="text-primary mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-receipt text-6xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">Continia</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Document capture and expense management</p>
+                    </div>
+                </div>
+                <div class="text-center group">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                        <div class="text-primary mb-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-truck text-6xl mx-auto"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold mb-2">InspHire</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">Equipment rental and inspection workflows</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Examples -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Process Automation Examples</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Streamline your business processes with intelligent automation</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-credit-card h-6 w-6 text-primary mr-2"></i>
+                        Accounts Payable Automation
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                            <span class="text-sm">Automated invoice capture and processing</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                            <span class="text-sm">Three-way matching validation</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                            <span class="text-sm">Approval workflow routing</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                            <span class="text-sm">Automated payment runs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-file-alt h-6 w-6 text-primary mr-2"></i>
+                        Financial Reporting
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                            <span class="text-sm">Automated month-end journal entries</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                            <span class="text-sm">Real-time P&L and balance sheet</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                            <span class="text-sm">Automated variance analysis</span>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="h-2 w-2 bg-primary rounded-full mr-3"></span>
+                            <span class="text-sm">Management pack distribution</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Let's Transform Your Business</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400">Ready to optimize your Business Central implementation?</p>
+            </div>
+            
+            <!-- Contact Info -->
+            <div class="text-center">
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
+                    <a href="mailto:nickneouk@gmail.com" class="flex items-center justify-center text-primary hover:text-primary-dark transition-colors">
+                        <i class="fas fa-envelope h-5 w-5 mr-2"></i>
+                        <span>nickneouk@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/neonick" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center text-primary hover:text-primary-dark transition-colors">
+                        <i class="fab fa-linkedin h-5 w-5 mr-2"></i>
+                        <span>linkedin.com/in/neonick</span>
+                    </a>
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-map-marker-alt h-5 w-5 text-primary mr-2"></i>
+                        <span>London, UK</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold mb-4">Nick Neo Consulting</h3>
+                <p class="text-gray-400 mb-4">Dynamics 365 Business Central • Finance Systems • ERP Transformation</p>
+                <p class="text-sm text-gray-500">© 2024 Nick Neo Consulting. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Icons are now using Font Awesome - no initialization needed
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Dashboard tabs
+        document.querySelectorAll('.dashboard-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remove active class from all tabs
+                document.querySelectorAll('.dashboard-tab').forEach(t => {
+                    t.classList.remove('bg-primary', 'text-white');
+                    t.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                });
+                
+                // Add active class to clicked tab
+                this.classList.add('bg-primary', 'text-white');
+                this.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                
+                // Hide all dashboard content
+                document.querySelectorAll('.dashboard-content').forEach(content => {
+                    content.classList.add('hidden');
+                });
+                
+                // Show selected dashboard content
+                const targetTab = this.getAttribute('data-tab');
+                document.getElementById(targetTab + '-dashboard').classList.remove('hidden');
+                
+                // Initialize charts for the active tab
+                setTimeout(() => initializeCharts(targetTab), 100);
+            });
+        });
+
+        // Store chart instances
+        let chartInstances = {};
+
+        // Chart initialization
+        function initializeCharts(tab) {
+            // Destroy existing charts first
+            destroyExistingCharts();
+            
+            if (tab === 'financial') {
+                initFinancialCharts();
+            } else if (tab === 'inventory') {
+                initInventoryCharts();
+            } else if (tab === 'sales') {
+                initSalesCharts();
+            }
+        }
+
+        function destroyExistingCharts() {
+            Object.keys(chartInstances).forEach(key => {
+                if (chartInstances[key]) {
+                    chartInstances[key].destroy();
+                    delete chartInstances[key];
+                }
+            });
+        }
+
+        function initFinancialCharts() {
+            // Revenue Chart with enhanced tooltips and interactivity
+            const revenueCtx = document.getElementById('revenueChart');
+            if (revenueCtx) {
+                chartInstances['revenueChart'] = new Chart(revenueCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan 2024', 'Feb 2024', 'Mar 2024', 'Apr 2024', 'May 2024', 'Jun 2024'],
+                        datasets: [{
+                            label: 'Actual Revenue',
+                            data: [180000, 220000, 200000, 250000, 280000, 240000],
+                            borderColor: '#5D5CDE',
+                            backgroundColor: 'rgba(93, 92, 222, 0.1)',
+                            borderWidth: 3,
+                            pointBackgroundColor: '#5D5CDE',
+                            pointBorderColor: '#FFFFFF',
+                            pointBorderWidth: 2,
+                            pointRadius: 6,
+                            pointHoverRadius: 8,
+                            tension: 0.4,
+                            fill: true
+                        }, {
+                            label: 'Target Revenue',
+                            data: [200000, 200000, 220000, 240000, 260000, 280000],
+                            borderColor: '#9CA3AF',
+                            backgroundColor: 'rgba(156, 163, 175, 0.1)',
+                            borderWidth: 2,
+                            borderDash: [8, 4],
+                            pointBackgroundColor: '#9CA3AF',
+                            pointBorderColor: '#FFFFFF',
+                            pointBorderWidth: 2,
+                            pointRadius: 5,
+                            pointHoverRadius: 7,
+                            tension: 0.4,
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            intersect: false,
+                            mode: 'index'
+                        },
+                        plugins: {
+                            legend: { 
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: { size: 12 }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleFont: { size: 14, weight: 'bold' },
+                                bodyFont: { size: 13 },
+                                padding: 12,
+                                cornerRadius: 8,
+                                displayColors: true,
+                                callbacks: {
+                                    title: function(context) {
+                                        return context[0].label;
+                                    },
+                                    label: function(context) {
+                                        const value = context.parsed.y;
+                                        const formatted = new Intl.NumberFormat('en-GB', {
+                                            style: 'currency',
+                                            currency: 'GBP',
+                                            minimumFractionDigits: 0,
+                                            maximumFractionDigits: 0
+                                        }).format(value);
+                                        return `${context.dataset.label}: ${formatted}`;
+                                    },
+                                    afterBody: function(context) {
+                                        const actual = context[0].parsed.y;
+                                        const target = context[1]?.parsed.y;
+                                        if (target) {
+                                            const variance = actual - target;
+                                            const percentage = ((variance / target) * 100).toFixed(1);
+                                            const sign = variance >= 0 ? '+' : '';
+                                            return `Variance: ${sign}${percentage}% (${sign}${new Intl.NumberFormat('en-GB', {
+                                                style: 'currency',
+                                                currency: 'GBP',
+                                                minimumFractionDigits: 0
+                                            }).format(variance)})`;
+                                        }
+                                        return '';
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: { display: false },
+                                ticks: {
+                                    font: { size: 11 },
+                                    maxRotation: 0
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: { 
+                                    color: 'rgba(156, 163, 175, 0.2)',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    font: { size: 11 },
+                                    callback: function(value) {
+                                        return new Intl.NumberFormat('en-GB', {
+                                            style: 'currency',
+                                            currency: 'GBP',
+                                            minimumFractionDigits: 0,
+                                            maximumFractionDigits: 0,
+                                            notation: 'compact'
+                                        }).format(value);
+                                    }
+                                }
+                            }
+                        },
+                        onClick: function(event, elements) {
+                            if (elements.length > 0) {
+                                const dataIndex = elements[0].index;
+                                const monthData = {
+                                    month: this.data.labels[dataIndex],
+                                    actual: this.data.datasets[0].data[dataIndex],
+                                    target: this.data.datasets[1].data[dataIndex]
+                                };
+                                showDrillDown('revenue-monthly', monthData);
+                            }
+                        }
+                    }
+                });
+            }
+
+            // Cash Flow Chart with enhanced styling
+            const cashFlowCtx = document.getElementById('cashFlowChart');
+            if (cashFlowCtx) {
+                chartInstances['cashFlowChart'] = new Chart(cashFlowCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                        datasets: [{
+                            label: 'Net Cash Flow',
+                            data: [45000, -20000, 60000, 30000, -15000, 80000],
+                            backgroundColor: function(context) {
+                                const value = context.parsed.y;
+                                return value > 0 ? '#10B981' : '#EF4444';
+                            },
+                            borderColor: function(context) {
+                                const value = context.parsed.y;
+                                return value > 0 ? '#059669' : '#DC2626';
+                            },
+                            borderWidth: 2,
+                            borderRadius: 4,
+                            borderSkipped: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { 
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    usePointStyle: true,
+                                    padding: 20,
+                                    font: { size: 12 }
+                                }
+                            },
+                            tooltip: {
+                                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                                titleFont: { size: 14, weight: 'bold' },
+                                bodyFont: { size: 13 },
+                                padding: 12,
+                                cornerRadius: 8,
+                                callbacks: {
+                                    title: function(context) {
+                                        return `${context[0].label} 2024 Cash Flow`;
+                                    },
+                                    label: function(context) {
+                                        const value = context.parsed.y;
+                                        const formatted = new Intl.NumberFormat('en-GB', {
+                                            style: 'currency',
+                                            currency: 'GBP',
+                                            minimumFractionDigits: 0,
+                                            maximumFractionDigits: 0
+                                        }).format(Math.abs(value));
+                                        const status = value > 0 ? 'Positive' : 'Negative';
+                                        return `${status}: ${formatted}`;
+                                    },
+                                    afterBody: function(context) {
+                                        const value = context[0].parsed.y;
+                                        if (value > 0) {
+                                            return '↗ Cash inflow month';
+                                        } else {
+                                            return '↘ Cash outflow month';
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            x: {
+                                display: true,
+                                grid: { display: false },
+                                ticks: {
+                                    font: { size: 11 }
+                                }
+                            },
+                            y: {
+                                display: true,
+                                grid: { 
+                                    color: 'rgba(156, 163, 175, 0.2)',
+                                    drawBorder: false
+                                },
+                                ticks: {
+                                    font: { size: 11 },
+                                    callback: function(value) {
+                                        return new Intl.NumberFormat('en-GB', {
+                                            style: 'currency',
+                                            currency: 'GBP',
+                                            minimumFractionDigits: 0,
+                                            maximumFractionDigits: 0,
+                                            notation: 'compact'
+                                        }).format(value);
+                                    }
+                                }
+                            }
+                        },
+                        onClick: function(event, elements) {
+                            if (elements.length > 0) {
+                                const dataIndex = elements[0].index;
+                                const monthData = {
+                                    month: this.data.labels[dataIndex],
+                                    cashFlow: this.data.datasets[0].data[dataIndex]
+                                };
+                                showDrillDown('cashflow-monthly', monthData);
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function initInventoryCharts() {
+            // Stock Chart
+            const stockCtx = document.getElementById('stockChart');
+            if (stockCtx) {
+                chartInstances['stockChart'] = new Chart(stockCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['In Stock', 'Low Stock', 'Out of Stock'],
+                        datasets: [{
+                            data: [65, 25, 10],
+                            backgroundColor: ['#10B981', '#F59E0B', '#EF4444']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+
+            // Turnover Chart
+            const turnoverCtx = document.getElementById('turnoverChart');
+            if (turnoverCtx) {
+                chartInstances['turnoverChart'] = new Chart(turnoverCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                        datasets: [{
+                            data: [4.2, 3.8, 4.5, 4.1],
+                            borderColor: '#5D5CDE',
+                            fill: true,
+                            backgroundColor: 'rgba(93, 92, 222, 0.1)'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: { x: { display: false }, y: { display: false } }
+                    }
+                });
+            }
+        }
+
+        function initSalesCharts() {
+            // Sales by Region Chart
+            const salesRegionCtx = document.getElementById('salesRegionChart');
+            if (salesRegionCtx) {
+                chartInstances['salesRegionChart'] = new Chart(salesRegionCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['North', 'South', 'East', 'West'],
+                        datasets: [{
+                            data: [30, 25, 28, 17],
+                            backgroundColor: ['#5D5CDE', '#10B981', '#F59E0B', '#EF4444']
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+
+            // Sales Trend Chart
+            const salesTrendCtx = document.getElementById('salesTrendChart');
+            if (salesTrendCtx) {
+                chartInstances['salesTrendChart'] = new Chart(salesTrendCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                        datasets: [{
+                            data: [120, 150, 130, 180, 160, 200],
+                            backgroundColor: '#5D5CDE'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: { x: { display: false }, y: { display: false } }
+                    }
+                });
+            }
+        }
+
+
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Get the height of the sticky navigation
+                    const navHeight = document.querySelector('nav').offsetHeight;
+                    // Calculate the target position accounting for the sticky nav
+                    const targetPosition = target.offsetTop - navHeight - 20; // 20px extra padding
+                    
+                    // Smooth scroll to the calculated position
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu if open
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Service filtering functionality
+        const services = [
+            {
+                category: 'implementation',
+                icon: 'fas fa-cogs',
+                title: 'BC Implementation',
+                description: 'Complete Business Central setup, configuration, and deployment with best practices'
+            },
+            {
+                category: 'implementation',
+                icon: 'fas fa-database',
+                title: 'Data Migration',
+                description: 'Seamless data migration from legacy systems with data cleansing and validation'
+            },
+            {
+                category: 'integration',
+                icon: 'fas fa-chart-bar',
+                title: 'Power BI Integration',
+                description: 'Real-time dashboards and automated reporting for data-driven decisions'
+            },
+            {
+                category: 'automation',
+                icon: 'fas fa-project-diagram',
+                title: 'Process Automation',
+                description: 'Workflow automation and approval processes to increase efficiency'
+            },
+            {
+                category: 'implementation',
+                icon: 'fas fa-shield-alt',
+                title: 'Compliance & Controls',
+                description: 'SOX compliance, audit-ready processes, and financial controls implementation'
+            },
+            {
+                category: 'support',
+                icon: 'fas fa-graduation-cap',
+                title: 'Training & Support',
+                description: 'Comprehensive user training and ongoing support for smooth adoption'
+            },
+            {
+                category: 'integration',
+                icon: 'fas fa-exchange-alt',
+                title: 'Third-Party Integrations',
+                description: 'Connect BC with Salesforce, CRM systems, and other business applications'
+            },
+            {
+                category: 'automation',
+                icon: 'fas fa-robot',
+                title: 'Workflow Automation',
+                description: 'Automated approval workflows, document routing, and business process automation'
+            },
+            {
+                category: 'support',
+                icon: 'fas fa-tools',
+                title: 'System Optimization',
+                description: 'Performance tuning, system health checks, and ongoing maintenance'
+            },
+            {
+                category: 'implementation',
+                icon: 'fas fa-cloud',
+                title: 'Cloud Migration',
+                description: 'Migrate from on-premise NAV to Business Central cloud with minimal disruption'
+            },
+            {
+                category: 'automation',
+                icon: 'fas fa-file-invoice',
+                title: 'Document Management',
+                description: 'Automated invoice processing, OCR, and document workflow solutions'
+            },
+            {
+                category: 'integration',
+                icon: 'fas fa-sync',
+                title: 'API Development',
+                description: 'Custom API development for seamless data exchange between systems'
+            }
+        ];
+
+        function renderServices(category = 'all') {
+            const container = document.getElementById('services-container');
+            const filteredServices = category === 'all' ? services : services.filter(service => service.category === category);
+            
+            container.innerHTML = filteredServices.map(service => `
+                <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-lg card-hover">
+                    <div class="text-primary mb-4">
+                        <i class="${service.icon} text-5xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">${service.title}</h3>
+                    <p class="text-gray-600 dark:text-gray-400">${service.description}</p>
+                </div>
+            `).join('');
+        }
+
+        // Service filter buttons
+        document.querySelectorAll('.service-filter').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.service-filter').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('bg-primary', 'text-white');
+                this.classList.remove('bg-gray-200', 'dark:bg-gray-700', 'text-gray-700', 'dark:text-gray-300');
+                
+                // Filter services
+                const category = this.getAttribute('data-category');
+                renderServices(category);
+            });
+        });
+
+        // Drill-down functionality
+        function showDrillDown(type, data) {
+            let content = '';
+            
+            switch(type) {
+                case 'revenue':
+                    content = `
+                        <h3 class="text-xl font-bold mb-4">Revenue Analysis</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded">
+                                <h4 class="font-semibold">YTD Performance</h4>
+                                <p>Total Revenue: £2.4M (+12.5% vs target)</p>
+                                <p>Best Month: May 2024 (£280K)</p>
+                                <p>Growth Rate: 8.2% YoY</p>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-gray-50 dark:bg-gray-800 p-3 rounded">
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Q1 Revenue</div>
+                                    <div class="text-lg font-bold">£600K</div>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800 p-3 rounded">
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Q2 Revenue</div>
+                                    <div class="text-lg font-bold">£770K</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'revenue-monthly':
+                    const variance = data.actual - data.target;
+                    const percentage = ((variance / data.target) * 100).toFixed(1);
+                    content = `
+                        <h3 class="text-xl font-bold mb-4">${data.month} Revenue Details</h3>
+                        <div class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded">
+                                    <h4 class="font-semibold">Actual Revenue</h4>
+                                    <p class="text-2xl font-bold text-blue-600">${new Intl.NumberFormat('en-GB', {
+                                        style: 'currency',
+                                        currency: 'GBP',
+                                        minimumFractionDigits: 0
+                                    }).format(data.actual)}</p>
+                                </div>
+                                <div class="bg-gray-50 dark:bg-gray-800 p-4 rounded">
+                                    <h4 class="font-semibold">Target Revenue</h4>
+                                    <p class="text-2xl font-bold">${new Intl.NumberFormat('en-GB', {
+                                        style: 'currency',
+                                        currency: 'GBP',
+                                        minimumFractionDigits: 0
+                                    }).format(data.target)}</p>
+                                </div>
+                            </div>
+                            <div class="bg-${variance >= 0 ? 'green' : 'red'}-50 dark:bg-${variance >= 0 ? 'green' : 'red'}-900 p-4 rounded">
+                                <h4 class="font-semibold">Variance Analysis</h4>
+                                <p class="text-lg font-bold text-${variance >= 0 ? 'green' : 'red'}-600">
+                                    ${variance >= 0 ? '+' : ''}${percentage}% 
+                                    (${variance >= 0 ? '+' : ''}${new Intl.NumberFormat('en-GB', {
+                                        style: 'currency',
+                                        currency: 'GBP',
+                                        minimumFractionDigits: 0
+                                    }).format(variance)})
+                                </p>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                case 'ar-aging':
+                    content = `
+                        <h3 class="text-xl font-bold mb-4">Accounts Receivable Aging Report</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="border-b">
+                                        <th class="text-left p-2">Customer</th>
+                                        <th class="text-right p-2">Current</th>
+                                        <th class="text-right p-2">31-60</th>
+                                        <th class="text-right p-2">61-90</th>
+                                        <th class="text-right p-2">90+</th>
+                                        <th class="text-right p-2">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-2">Acme Corp</td>
+                                        <td class="text-right p-2">£45K</td>
+                                        <td class="text-right p-2">£12K</td>
+                                        <td class="text-right p-2">£0</td>
+                                        <td class="text-right p-2">£0</td>
+                                        <td class="text-right p-2 font-bold">£57K</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">Global Tech Ltd</td>
+                                        <td class="text-right p-2">£38K</td>
+                                        <td class="text-right p-2">£8K</td>
+                                        <td class="text-right p-2">£5K</td>
+                                        <td class="text-right p-2">£2K</td>
+                                        <td class="text-right p-2 font-bold">£53K</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">Prime Industries</td>
+                                        <td class="text-right p-2">£32K</td>
+                                        <td class="text-right p-2">£5K</td>
+                                        <td class="text-right p-2">£4K</td>
+                                        <td class="text-right p-2">£3K</td>
+                                        <td class="text-right p-2 font-bold">£44K</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">Metro Systems</td>
+                                        <td class="text-right p-2">£23K</td>
+                                        <td class="text-right p-2">£3K</td>
+                                        <td class="text-right p-2">£3K</td>
+                                        <td class="text-right p-2">£1K</td>
+                                        <td class="text-right p-2 font-bold">£30K</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="border-t-2 font-bold">
+                                        <td class="p-2">Total</td>
+                                        <td class="text-right p-2">£138K</td>
+                                        <td class="text-right p-2">£28K</td>
+                                        <td class="text-right p-2">£12K</td>
+                                        <td class="text-right p-2">£6K</td>
+                                        <td class="text-right p-2">£184K</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    `;
+                    break;
+                case 'customers':
+                    content = `
+                        <h3 class="text-xl font-bold mb-4">Customer Performance Analysis</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 p-4 rounded">
+                                <h4 class="font-bold text-lg">Acme Corp</h4>
+                                <div class="grid grid-cols-2 gap-4 mt-2">
+                                    <div>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">YTD Revenue</p>
+                                        <p class="font-bold">£145K (+8.2%)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Industry</p>
+                                        <p class="font-bold">Manufacturing</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Payment Terms</p>
+                                        <p class="font-bold">Net 30</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Credit Limit</p>
+                                        <p class="font-bold">£200K</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 p-4 rounded">
+                                <h4 class="font-bold text-lg">Global Tech Ltd</h4>
+                                <div class="grid grid-cols-2 gap-4 mt-2">
+                                    <div>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">YTD Revenue</p>
+                                        <p class="font-bold">£98K (+12.1%)</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Industry</p>
+                                        <p class="font-bold">Technology</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Payment Terms</p>
+                                        <p class="font-bold">Net 45</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Credit Limit</p>
+                                        <p class="font-bold">£150K</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                default:
+                    content = `
+                        <h3 class="text-xl font-bold mb-4">Detailed Analytics</h3>
+                        <p>This feature demonstrates drill-down capabilities in Business Central dashboards.</p>
+                        <p class="mt-2">In a real implementation, this would show:</p>
+                        <ul class="mt-2 list-disc list-inside space-y-1">
+                            <li>Detailed transaction data</li>
+                            <li>Historical trends and comparisons</li>
+                            <li>Automated insights and recommendations</li>
+                            <li>Real-time data from BC tables</li>
+                        </ul>
+                    `;
+            }
+            
+            // Create and show modal
+            const modal = document.createElement('div');
+            modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4';
+            modal.innerHTML = `
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-area text-primary mr-2"></i>
+                                <span class="text-sm text-gray-600 dark:text-gray-400">Business Central Analytics</span>
+                            </div>
+                            <button onclick="this.closest('.fixed').remove()" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300">
+                                <i class="fas fa-times text-xl"></i>
+                            </button>
+                        </div>
+                        ${content}
+                        <div class="mt-6 flex justify-end space-x-3">
+                            <button onclick="this.closest('.fixed').remove()" class="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded hover:bg-gray-300 dark:hover:bg-gray-600">Close</button>
+                            <button class="px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark">Export Data</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        // Initialize services and dashboard
+        renderServices('all');
+        setTimeout(() => initializeCharts('financial'), 500);
+    </script>
+</body>
+</html>
